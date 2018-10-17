@@ -5,29 +5,23 @@ generators:
 - type: "no_params"
   assertions:
   - "@StatusCode == 200"
+  tags: null
   severity: null
   database: null
   inactive: false
-  matches: null
+  matches: []
 - type: "sla"
   assertions:
   - "@StatusCode == 200 AND @ResponseTime < 500"
+  tags: null
   severity: null
   database: null
   inactive: false
-  matches:
-  - name: null
-    value: null
-    methods: null
-    denyRoles: null
-    allowRoles: null
-    pathPatterns: null
-    resourceSamples: null
-    queryParams: null
-    bodyProperties: null
+  matches: []
 - type: "anonymous_invalid"
   assertions:
   - "@StatusCode == 401 OR @StatusCode == 403"
+  tags: null
   severity: null
   database: null
   inactive: false
@@ -44,6 +38,13 @@ generators:
 - type: "auth_invalid"
   assertions:
   - "@StatusCode == 401 OR @StatusCode == 403"
+  tags:
+  - "OWASP A2"
+  - "OWASP A5"
+  - "OWASP A6"
+  - "OWASP A7"
+  - "[PIC DSS 3.0] 6.5.8"
+  - "[PIC DSS 3.0] 6.5.10"
   severity: null
   database: null
   inactive: false
@@ -60,6 +61,13 @@ generators:
 - type: "auth_invalid_empty"
   assertions:
   - "@StatusCode == 401 OR @StatusCode == 403"
+  tags:
+  - "OWASP A2"
+  - "OWASP A5"
+  - "OWASP A6"
+  - "OWASP A7"
+  - "[PIC DSS 3.0] 6.5.8"
+  - "[PIC DSS 3.0] 6.5.10"
   severity: null
   database: null
   inactive: false
@@ -76,6 +84,9 @@ generators:
 - type: "auth_invalid_sql"
   assertions:
   - "@StatusCode == 401 OR @StatusCode == 403"
+  tags:
+  - "OWASP A1"
+  - "[PCI DSS 3.0] 6.5.1"
   severity: null
   database: null
   inactive: false
@@ -92,6 +103,7 @@ generators:
 - type: "rbac"
   assertions:
   - "@StatusCode == 403"
+  tags: null
   severity: null
   database: null
   inactive: false
@@ -136,6 +148,8 @@ generators:
   assertions:
   - "@StatusCode != 401"
   - "@StatusCode != 404"
+  tags:
+  - "[PCI DSS 3.0] 6.5.2"
   severity: null
   database: null
   inactive: false
@@ -155,14 +169,20 @@ generators:
   - "@StatusCode != 401"
   - "@StatusCode != 404"
   - "@StatusCode != 500"
+  tags:
+  - "OWASP A3"
+  - "[PIC DSS 3.0] 6.5.7"
   severity: null
   database: null
   inactive: false
-  matches: null
+  matches: []
 - type: "sql_injection_timebound"
   assertions:
   - "@ResponseTime < 7000 OR @ResponseTime > 10000"
   - "@StatusCode != 404"
+  tags:
+  - "OWASP A1"
+  - "[PCI DSS 3.0] 6.5.1"
   severity: null
   database:
     name: "MySQL"
@@ -175,63 +195,70 @@ generators:
   - "@StatusCode != 401"
   - "@StatusCode != 404"
   - "@StatusCode != 500"
+  tags: null
   severity: null
   database: null
   inactive: false
-  matches: null
+  matches: []
 - type: "invalid_datatype"
   assertions:
   - "@StatusCode != 401"
   - "@StatusCode != 404"
+  tags: null
   severity: null
   database: null
   inactive: false
-  matches: null
+  matches: []
 - type: "special_chars "
   assertions:
   - "@StatusCode != 200"
   - "@StatusCode != 401"
   - "@StatusCode != 404"
   - "@StatusCode != 500"
+  tags: null
   severity: null
   database: null
   inactive: false
-  matches: null
+  matches: []
 - type: "null_value"
   assertions:
   - "@StatusCode != 200"
   - "@StatusCode != 401"
   - "@StatusCode != 404"
   - "@StatusCode != 500"
+  tags: null
   severity: null
   database: null
   inactive: false
-  matches: null
+  matches: []
 - type: "empty_value"
   assertions:
   - "@StatusCode != 200"
   - "@StatusCode != 401"
   - "@StatusCode != 404"
   - "@StatusCode != 500"
+  tags: null
   severity: null
   database: null
   inactive: false
-  matches: null
+  matches: []
 - type: "negative_number"
   assertions:
   - "@StatusCode != 401"
   - "@StatusCode != 404"
+  tags: null
   severity: null
   database: null
   inactive: false
-  matches: null
+  matches: []
 - type: "create"
   assertions:
   - "@StatusCode != 200"
   - "@StatusCode != 401"
   - "@StatusCode != 404"
   - "@StatusCode != 500"
+  tags: null
   severity: null
   database: null
   inactive: false
-  matches: null
+  matches: []
